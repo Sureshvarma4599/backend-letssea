@@ -1,6 +1,7 @@
 const bodyParser=require("body-parser");
 const express= require('express');
 const app = express();
+const port = process.env.PORT || 4000;
 const cors = require('cors');
 const userRoute = require('./router/userRoute.js')
 const productRoute = require('./router/productRoute')
@@ -18,7 +19,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors())
 
-app.listen(4000,()=>
+app.listen(port,()=>
     console.log('server is working')
 )
 app.use('/adm',userRoute)
